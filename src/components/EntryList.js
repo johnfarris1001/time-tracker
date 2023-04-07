@@ -12,7 +12,7 @@ function EntryList({ entries }) {
 
     return (
         <div>
-            <table>
+            <table className="center">
                 <thead>
                     <tr>
                         <th>

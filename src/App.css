@@ -39,3 +39,7 @@ select {
 th {
   padding: 15px;
 }
+
+form {
+  text-align: center;
+}

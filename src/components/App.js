@@ -52,7 +52,7 @@ function App() {
                     <EntryList entries={entries} user={user} />
                 </Route>
                 <Route path='/newentry'>
-                    <NewEntry />
+                    <NewEntry user={user} />
                 </Route>
                 <Route exact path='/'>
                     <Home user={user} users={users} changeUser={changeUser} />

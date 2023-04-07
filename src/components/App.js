@@ -11,14 +11,33 @@ import '../App.css';
 
 function App() {
     const [entries, setEntries] = useState([])
+    const [user, setUser] = useState("John")
+    const [users, setUsers] = useState([])
 
     const API = 'http://localhost:3001/entries'
 
     useEffect(() => {
         fetch(API)
             .then(r => r.json())
-            .then(data => setEntries(data))
+            .then(data => {
+                setEntries(data)
+
+                const newUsers = []
+                data.map(entry => {
+                    if (!newUsers.includes(entry.user)) {
+                        newUsers.push(entry.user)
+                    }
+                })
+                setUsers(newUsers)
+
+            })
+
     }, [])
+
+    function changeUser(e) {
+        setUser(e.target.value)
+    }
+
 
     return (
         <div className="App">
@@ -30,13 +49,13 @@ function App() {
                     <About />
                 </Route>
                 <Route path='/entrylist'>
-                    <EntryList entries={entries} />
+                    <EntryList entries={entries} user={user} />
                 </Route>
                 <Route path='/newentry'>
                     <NewEntry />
                 </Route>
                 <Route exact path='/'>
-                    <Home />
+                    <Home user={user} users={users} changeUser={changeUser} />
                 </Route>
             </Switch>
 

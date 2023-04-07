@@ -1,8 +1,10 @@
 import React from 'react'
 import Entry from './Entry'
 
-function EntryList({ entries }) {
-    const entriesToDisplay = entries.map(entry => {
+function EntryList({ entries, user }) {
+    const entriesToDisplay = entries.filter(entry => {
+        return entry.user === user
+    }).map(entry => {
         return (
             <Entry key={entry.id} entry={entry} />
         )

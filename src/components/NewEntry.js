@@ -5,11 +5,13 @@ function NewEntry() {
         <div>
             <h3>Enter Details of Your Activity: </h3>
             <form>
-                <label for="time">Start Time:</label>
-                <input type='text' name='time' />
-                <label for="name">Activity:</label>
+                <label>Date:</label>
+                <input onChange={e => console.log(e.target.value)} type='date' name='date' />
+                <label>Start Time:</label>
+                <input onChange={e => console.log(e.target.value)} type='time' name='time' />
+                <label>Activity:</label>
                 <input type='text' name='name' />
-                <label for="type">Activity Type:</label>
+                <label>Activity Type:</label>
                 <input type='text' name='type' />
             </form>
         </div>

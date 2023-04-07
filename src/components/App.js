@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import NavBar from './NavBar'
@@ -10,6 +10,12 @@ import Home from './Home'
 import '../App.css';
 
 function App() {
+    const [entries, setEntries] = useState([])
+
+    useEffect(() => {
+
+    }, [])
+
     return (
         <div className="App">
             <br />
@@ -20,7 +26,7 @@ function App() {
                     <About />
                 </Route>
                 <Route path='/entrylist'>
-                    <EntryList />
+                    <EntryList entries={entries} />
                 </Route>
                 <Route path='/newentry'>
                     <NewEntry />

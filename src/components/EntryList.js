@@ -1,9 +1,35 @@
 import React from 'react'
+import Entry from './Entry'
 
-function EntryList() {
+function EntryList({ entries }) {
+    const entriesToDisplay = entries.map(entry => {
+        return (
+            <td>
+                <Entry key={entry.id} entry={entry} />
+            </td>
+        )
+    })
+
     return (
         <div>
-            EntryList
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Time & Date
+                        </th>
+                        <th>
+                            Activity
+                        </th>
+                        <th>
+                            Activity Type
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {entriesToDisplay}
+                </tbody>
+            </table>
         </div>
     )
 }

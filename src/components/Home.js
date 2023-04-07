@@ -6,7 +6,7 @@ function Home({ user, users, changeUser }) {
     })
 
     return (
-        <div>
+        <div className='center-div'>
             <h3>Home</h3>
             <div>Current User:
                 <select onChange={changeUser} value={user}>

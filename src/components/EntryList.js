@@ -16,9 +16,10 @@ function EntryList({ entries, user }) {
             <table className="center">
                 <thead>
                     <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Start</th>
-                        <th scope="col">End</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">End Time</th>
                         <th scope="col">Activity</th>
                         <th scope="col">Activity Type</th>
                     </tr>

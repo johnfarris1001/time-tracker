@@ -20,10 +20,10 @@ function NavBar() {
                 About
             </NavLink>
             <NavLink to='/entrylist' exact style={linkStyles}>
-                EntryList
+                Entry List
             </NavLink>
             <NavLink to='/newentry' exact style={linkStyles}>
-                NewEntry
+                New Entry
             </NavLink>
         </div>
     )

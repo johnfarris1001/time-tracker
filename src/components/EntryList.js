@@ -4,9 +4,7 @@ import Entry from './Entry'
 function EntryList({ entries }) {
     const entriesToDisplay = entries.map(entry => {
         return (
-            <td>
-                <Entry key={entry.id} entry={entry} />
-            </td>
+            <Entry key={entry.id} entry={entry} />
         )
     })
 
@@ -15,15 +13,9 @@ function EntryList({ entries }) {
             <table className="center">
                 <thead>
                     <tr>
-                        <th>
-                            Time & Date
-                        </th>
-                        <th>
-                            Activity
-                        </th>
-                        <th>
-                            Activity Type
-                        </th>
+                        <th scope="col">Time & Date</th>
+                        <th scope="col">Activity</th>
+                        <th scope="col">Activity Type</th>
                     </tr>
                 </thead>
                 <tbody>

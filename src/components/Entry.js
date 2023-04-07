@@ -1,17 +1,11 @@
 import React from 'react'
 
-function Entry() {
+function Entry({ entry }) {
     return (
         <tr>
-            <td>
-                4/7/23 9:00 AM
-            </td>
-            <td>
-                Work on phase 2 project
-            </td>
-            <td>
-                Flatiron Class
-            </td>
+            <th scope="row">{entry.time}</th>
+            <td>{entry.name}</td>
+            <td>{entry.type}</td>
         </tr>
     )
 }

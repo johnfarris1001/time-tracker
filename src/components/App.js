@@ -12,8 +12,12 @@ import '../App.css';
 function App() {
     const [entries, setEntries] = useState([])
 
-    useEffect(() => {
+    const API = 'http://localhost:3001/entries'
 
+    useEffect(() => {
+        fetch(API)
+            .then(r => r.json())
+            .then(data => setEntries(data))
     }, [])
 
     return (

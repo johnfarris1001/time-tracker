@@ -18,8 +18,7 @@ function EntryList({ entries, user }) {
                     <tr>
                         <th scope="col">Start Date</th>
                         <th scope="col">Start Time</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">End Time</th>
+                        <th scope="col">Length</th>
                         <th scope="col">Activity</th>
                         <th scope="col">Activity Type</th>
                     </tr>

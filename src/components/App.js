@@ -38,6 +38,13 @@ function App() {
         setUser(e.target.value)
     }
 
+    function addEntry(entry) {
+        setEntries([
+            ...entries,
+            entry
+        ])
+    }
+
 
     return (
         <div className="App">
@@ -52,10 +59,14 @@ function App() {
                     <EntryList entries={entries} user={user} />
                 </Route>
                 <Route path='/newentry'>
-                    <NewEntry user={user} />
+                    <NewEntry user={user} api={API} addEntry={addEntry} />
                 </Route>
                 <Route exact path='/'>
-                    <Home user={user} users={users} changeUser={changeUser} />
+                    <Home
+                        user={user}
+                        users={users}
+                        changeUser={changeUser}
+                    />
                 </Route>
             </Switch>
 

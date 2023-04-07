@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function NewEntry({ user }) {
+function NewEntry({ user, api, addEntry }) {
     const [formData, setFormData] = useState({
         user: user,
         dateStart: new Date().toJSON().slice(0, 10),
@@ -12,7 +12,16 @@ function NewEntry({ user }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(formData)
+        fetch(api, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(r => r.json())
+            .then(data => addEntry(data))
+
     }
 
     return (

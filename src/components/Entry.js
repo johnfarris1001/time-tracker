@@ -5,8 +5,7 @@ function Entry({ entry }) {
         <tr>
             <th scope="row">{entry.dateStart}</th>
             <td>{entry.start}</td>
-            <td>{entry.dateEnd}</td>
-            <td>{entry.end}</td>
+            <td>{entry.length}</td>
             <td>{entry.name}</td>
             <td>{entry.type}</td>
         </tr>

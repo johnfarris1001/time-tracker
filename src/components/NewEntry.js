@@ -94,6 +94,8 @@ function NewEntry({ user, api, addEntry }) {
                     value={formData.type}
                 />
                 <br />
+                <p>Current User: {user}</p>
+                <br />
                 <input
                     type='submit'
                     name='submit'

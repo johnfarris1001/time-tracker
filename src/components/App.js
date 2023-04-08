@@ -45,6 +45,10 @@ function App() {
         ])
     }
 
+    function addNewUser(newUser) {
+        setUser(newUser)
+        setUsers([...users, newUser])
+    }
 
     return (
         <div className="App">
@@ -66,6 +70,7 @@ function App() {
                         user={user}
                         users={users}
                         changeUser={changeUser}
+                        addNewUser={addNewUser}
                     />
                 </Route>
             </Switch>

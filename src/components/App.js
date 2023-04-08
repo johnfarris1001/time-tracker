@@ -35,7 +35,7 @@ function App() {
     }, [])
 
     function changeUser(e) {
-        setUser(e.target.value)
+        setUser(e)
     }
 
     function addEntry(entry) {

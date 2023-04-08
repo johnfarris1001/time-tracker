@@ -7,16 +7,26 @@ function Home({ user, users, changeUser, addNewUser }) {
         return <option key={user} value={user}>{user}</option>
     })
 
+    function handleChange(e) {
+        changeUser(e.target.value)
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
+        if (users.includes(newUser)) {
+            changeUser(newUser)
+            setNewUser('')
+            return
+        }
         addNewUser(newUser)
+        setNewUser('')
     }
 
     return (
         <div className='center-div'>
             <h3>Home</h3>
             <div>Current User:
-                <select onChange={changeUser} value={user}>
+                <select onChange={handleChange} value={user}>
                     {userOptions}
                 </select>
             </div>

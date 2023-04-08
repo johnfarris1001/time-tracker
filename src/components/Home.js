@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 function Home({ user, users, changeUser, addNewUser }) {
     const [newUser, setNewUser] = useState('')
+    const history = useHistory()
 
     const userOptions = users.map(user => {
         return <option key={user} value={user}>{user}</option>
@@ -16,10 +18,12 @@ function Home({ user, users, changeUser, addNewUser }) {
         if (users.includes(newUser)) {
             changeUser(newUser)
             setNewUser('')
+            history.push('/newentry')
             return
         }
         addNewUser(newUser)
         setNewUser('')
+        history.push('/newentry')
     }
 
     return (

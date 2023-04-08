@@ -21,7 +21,6 @@ function App() {
             .then(r => r.json())
             .then(data => {
                 setEntries(data)
-
                 const newUsers = []
                 data.map(entry => {
                     if (!newUsers.includes(entry.user)) {
@@ -29,9 +28,7 @@ function App() {
                     }
                 })
                 setUsers(newUsers)
-
             })
-
     }, [])
 
     function changeUser(e) {
@@ -50,6 +47,12 @@ function App() {
         setUsers([...users, newUser])
     }
 
+    function handleDeleteEntry(id) {
+        setEntries(entries.filter(entry => {
+            return entry.id !== id
+        }))
+    }
+
     return (
         <div className="App">
             <br />
@@ -60,7 +63,12 @@ function App() {
                     <About />
                 </Route>
                 <Route path='/entrylist'>
-                    <EntryList entries={entries} user={user} />
+                    <EntryList
+                        entries={entries}
+                        user={user}
+                        api={API}
+                        removeItem={handleDeleteEntry}
+                    />
                 </Route>
                 <Route path='/newentry'>
                     <NewEntry user={user} api={API} addEntry={addEntry} />

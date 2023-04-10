@@ -28,13 +28,11 @@ function Home({ user, users, changeUser, addNewUser }) {
 
     return (
         <div className='center-div'>
-            <h3>Home</h3>
             <div>Current User:
                 <select onChange={handleChange} value={user}>
                     {userOptions}
                 </select>
             </div>
-            <br />
             <div>
                 <form onSubmit={handleSubmit}>
                     <label>Add User:</label>

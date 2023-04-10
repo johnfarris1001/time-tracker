@@ -14,9 +14,6 @@ function NavBar() {
     return (
         <div className='navbar'>
             <NavLink to='/' exact style={linkStyles}>
-                Home
-            </NavLink>
-            <NavLink to='/about' exact style={linkStyles}>
                 About
             </NavLink>
             <NavLink to='/entrylist' exact style={linkStyles}>

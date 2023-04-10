@@ -21,10 +21,9 @@ h3 {
 }
 
 table {
-  table-layout: fixed;
-  width: 80%;
-  border-collapse: collapse;
+  width: 90%;
   border: 3px solid green;
+  border-collapse: collapse;
 }
 
 label {
@@ -38,12 +37,19 @@ select {
 
 th {
   padding: 15px;
+  border: 2px solid green;
+}
+
+td {
+  border: 2px solid green;
 }
 
 form {
   text-align: center;
+  padding: 10px;
 }
 
 tr {
   text-align: center;
+  border: 2px solid green;
 }

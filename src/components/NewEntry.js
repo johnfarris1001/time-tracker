@@ -58,7 +58,7 @@ function NewEntry({ user, api, addEntry }) {
                 <input
                     type='number'
                     name='length'
-                    step='0.01'
+                    step='0.1'
                     onChange={e => {
                         setFormData({
                             ...formData,

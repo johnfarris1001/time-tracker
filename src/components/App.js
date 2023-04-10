@@ -58,10 +58,9 @@ function App() {
             <br />
             <NavBar />
             <br />
+            <br />
+            <Home user={user} users={users} changeUser={changeUser} addNewUser={addNewUser} />
             <Switch>
-                <Route path='/about'>
-                    <About />
-                </Route>
                 <Route path='/entrylist'>
                     <EntryList
                         entries={entries}
@@ -74,12 +73,7 @@ function App() {
                     <NewEntry user={user} api={API} addEntry={addEntry} />
                 </Route>
                 <Route exact path='/'>
-                    <Home
-                        user={user}
-                        users={users}
-                        changeUser={changeUser}
-                        addNewUser={addNewUser}
-                    />
+                    <About />
                 </Route>
             </Switch>
 

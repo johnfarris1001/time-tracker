@@ -6,6 +6,7 @@ import About from './About'
 import EntryList from './EntryList'
 import NewEntry from './NewEntry'
 import Home from './Home'
+import Edit from './Edit'
 
 import '../App.css';
 
@@ -71,6 +72,13 @@ function App() {
                 </Route>
                 <Route path='/newentry'>
                     <NewEntry user={user} api={API} addEntry={addEntry} />
+                </Route>
+                <Route path='/edit/:id'>
+                    <Edit
+                        entries={entries}
+                        users={users}
+                        api={API}
+                    />
                 </Route>
                 <Route exact path='/'>
                     <About />

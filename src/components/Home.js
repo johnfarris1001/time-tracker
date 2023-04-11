@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import RunningActivity from './RunningActivity'
 
-function Home({ user, users, entries, api, changeUser, addNewUser }) {
+function Home({ user, users, api, entries, changeUser, addNewUser, addEntry }) {
     const [newUser, setNewUser] = useState('')
-    const [runningActivities, setRunningActivities] = useState([])
     const history = useHistory()
 
     const userOptions = users.map(user => {
         return <option key={user} value={user}>{user}</option>
     })
 
-    const renderRunningActivities = runningActivities.map(item => {
+    const renderRunningActivities = entries.filter(item => {
+        return (item.user === user && item.length === 'running...')
+    }).map(item => {
         return <RunningActivity key={item.id} entry={item} api={api} />
     })
 
@@ -41,7 +42,7 @@ function Home({ user, users, entries, api, changeUser, addNewUser }) {
             year: new Date().getFullYear()
         }
 
-        const time = `${date.hour}:${date.minute}`
+        const time = `${date.hour < 10 ? `0${date.hour}` : date.hour}:${date.minute < 10 ? `0${date.minute}` : date.minute}`
         const day = `${date.year}-${date.month < 10 ? `0${date.month}` : date.month}-${date.day < 10 ? `0${date.day}` : date.day}`
 
         const newActivity = {
@@ -60,7 +61,7 @@ function Home({ user, users, entries, api, changeUser, addNewUser }) {
             body: JSON.stringify(newActivity)
         })
             .then(r => r.json())
-            .then(data => setRunningActivities([...runningActivities, data]))
+            .then(data => addEntry(data))
     }
 
     return (

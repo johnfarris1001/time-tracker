@@ -4,6 +4,8 @@ import Entry from './Entry'
 function EntryList({ entries, user, api, removeItem }) {
     const entriesToDisplay = entries.filter(entry => {
         return entry.user === user
+    }).filter(entry => {
+        return entry.length !== 'running...'
     }).map(entry => {
         return (
             <Entry key={entry.id} entry={entry} api={api} removeItem={removeItem} />

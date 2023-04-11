@@ -54,6 +54,13 @@ function App() {
         }))
     }
 
+    function handleUpdateEntry(updatedEntry) {
+        setEntries(entries.map(entry => {
+            if (updatedEntry.id === entry.id) return updatedEntry
+            return entry
+        }))
+    }
+
     return (
         <div className="App">
             <br />
@@ -76,8 +83,9 @@ function App() {
                 <Route path='/edit/:id'>
                     <Edit
                         entries={entries}
-                        users={users}
+                        user={user}
                         api={API}
+                        updateEntry={handleUpdateEntry}
                     />
                 </Route>
                 <Route exact path='/'>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory, Redirect } from 'react-router-dom'
 
-function Edit({ entries, user, api }) {
+function Edit({ entries, user, api, updateEntry }) {
     const params = useParams();
+    const history = useHistory();
 
     const entry = entries.filter(item => {
         return item.id == params.id
@@ -17,8 +18,22 @@ function Edit({ entries, user, api }) {
         type: entry.type
     })
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        fetch(`${api}/${entry.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(r => r.json())
+            .then(data => updateEntry(data))
+        history.goBack()
+    }
+
     return (
-        <div className='form'>
+        <div className='form' onSubmit={handleSubmit}>
             <h3>Enter Details of Your Activity: </h3>
             <form>
                 <label>Date:</label>

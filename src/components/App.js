@@ -67,7 +67,15 @@ function App() {
             <NavBar />
             <br />
             <br />
-            <Home user={user} users={users} changeUser={changeUser} addNewUser={addNewUser} />
+            <Home
+                user={user}
+                users={users}
+                entries={entries}
+                api={API}
+                changeUser={changeUser}
+                addNewUser={addNewUser}
+                removeItem={handleDeleteEntry}
+            />
             <Switch>
                 <Route path='/entrylist'>
                     <EntryList

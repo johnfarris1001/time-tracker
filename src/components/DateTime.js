@@ -59,3 +59,13 @@ export function getEndTime(entry) {
         return `${hours + 1}:${(minutes - 1) === 0 ? '00' : (minutes - 1) * 60}`
     }
 }
+
+export function roundTime(time) {
+    const hrs = parseInt(time.slice(0, 2))
+    const min = Math.round(parseInt(time.slice(3, 5)) / 15) * 15
+    if (min < 60) {
+        return `${hrs < 10 ? `0${hrs}` : hrs}:${min === 0 ? '00' : min}`
+    } else {
+        return `${hrs + 1 < 10 ? `0${hrs + 1}` : hrs + 1}:${min - 60 === 0 ? '00' : min - 60}`
+    }
+}

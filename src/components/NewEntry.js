@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { getTime, getDate } from './DateTime'
+import { getTime, getDate, roundTime } from './DateTime'
 
 function NewEntry({ user, api, addEntry }) {
     const history = useHistory()
@@ -14,13 +14,18 @@ function NewEntry({ user, api, addEntry }) {
     })
 
     function handleSubmit(e) {
+        const validatedFormData = {
+            ...formData,
+            length: (Math.round(formData.length * 4) / 4),
+            start: roundTime(formData.start)
+        }
         e.preventDefault()
         fetch(api, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(validatedFormData)
         })
             .then(r => r.json())
             .then(data => addEntry(data))

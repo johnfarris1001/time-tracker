@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { getEndTime } from './DateTime'
 
 function Entry({ entry, api, removeItem }) {
     const history = useHistory()
@@ -20,7 +21,7 @@ function Entry({ entry, api, removeItem }) {
         <tr>
             <th scope="row">{entry.dateStart}</th>
             <td>{entry.start}</td>
-            <td>End Time</td>
+            <td>{getEndTime(entry)}</td>
             <td>{entry.length} {entry.length === 1 ? 'hr' : 'hrs'}</td>
             <td>{entry.name}</td>
             <td>{entry.type}</td>

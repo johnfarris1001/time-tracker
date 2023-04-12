@@ -16,6 +16,14 @@
   margin-left: 20px;
 }
 
+#first-col {
+  width: 100px;
+}
+
+#fifth-col {
+  width: 200px;
+}
+
 h3 {
   text-align: center;
 }

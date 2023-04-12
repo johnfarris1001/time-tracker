@@ -48,9 +48,6 @@ export function getDate() {
 export function getEndTime(entry) {
     const hrs = parseInt(entry.start.slice(0, 2))
     const min = parseInt(entry.start.slice(3, 5)) / 60
-    const year = parseInt(entry.dateStart.slice(0, 4))
-    const month = parseInt(entry.dateStart.slice(5, 7))
-    const day1 = parseInt(entry.dateStart.slice(8, 10))
 
     const days = Math.floor(entry.length / 24)
     const hours = Math.floor(entry.length) + hrs - (days * 24)

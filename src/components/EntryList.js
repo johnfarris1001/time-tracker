@@ -18,11 +18,11 @@ function EntryList({ entries, user, api, removeItem }) {
             <table className="center">
                 <thead>
                     <tr>
-                        <th scope="col">Start Date</th>
+                        <th id='first-col' scope="col">Start Date</th>
                         <th scope="col">Start Time</th>
                         <th scope='col'>End Time</th>
                         <th scope="col">Length</th>
-                        <th scope="col">Activity</th>
+                        <th id='fifth-col' scope="col">Activity</th>
                         <th scope="col">Activity Type</th>
                     </tr>
                 </thead>

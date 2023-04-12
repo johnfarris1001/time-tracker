@@ -1,12 +1,30 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { getLength } from './DateTime'
 
-function RunningActivity({ entry, api }) {
+function RunningActivity({ entry, api, updateEntry }) {
     const [formData, setFormData] = useState({
         name: '',
         type: ''
     })
     const history = useHistory()
+
+    function endTask() {
+        fetch(`${api}/${entry.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ...entry,
+                name: formData.name,
+                type: formData.type,
+                length: getLength(entry)
+            })
+        })
+            .then(r => r.json())
+            .then(data => updateEntry(data))
+    }
 
     return (
         <tr>
@@ -37,7 +55,7 @@ function RunningActivity({ entry, api }) {
                 }}
                 value={formData.type}
             /></td>
-            <td><button>End Activity</button></td>
+            <td><button onClick={endTask}>End Activity</button></td>
         </tr>
     )
 }

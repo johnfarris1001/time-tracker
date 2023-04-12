@@ -20,6 +20,7 @@ function Entry({ entry, api, removeItem }) {
         <tr>
             <th scope="row">{entry.dateStart}</th>
             <td>{entry.start}</td>
+            <td>End Time</td>
             <td>{entry.length} {entry.length === 1 ? 'hr' : 'hrs'}</td>
             <td>{entry.name}</td>
             <td>{entry.type}</td>

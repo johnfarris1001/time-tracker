@@ -1,21 +1,11 @@
 import React, { useState } from 'react'
+import { getTime, getDate } from './DateTime'
 
 function NewEntry({ user, api, addEntry }) {
-    const date = {
-        hour: new Date().getHours(),
-        minute: new Date().getMinutes(),
-        day: new Date().getDate(),
-        month: new Date().getMonth() + 1,
-        year: new Date().getFullYear()
-    }
-
-    const time = `${date.hour < 10 ? `0${date.hour}` : date.hour}:${date.minute < 10 ? `0${date.minute}` : date.minute}`
-    const day = `${date.year}-${date.month < 10 ? `0${date.month}` : date.month}-${date.day < 10 ? `0${date.day}` : date.day}`
-
     const [formData, setFormData] = useState({
         user: user,
-        dateStart: day,
-        start: time,
+        dateStart: getDate(),
+        start: getTime(),
         length: 0,
         name: '',
         type: ''
@@ -69,7 +59,7 @@ function NewEntry({ user, api, addEntry }) {
                 <input
                     type='number'
                     name='length'
-                    step='0.1'
+                    step='0.25'
                     onChange={e => {
                         setFormData({
                             ...formData,

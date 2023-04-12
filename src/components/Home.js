@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import RunningActivity from './RunningActivity'
+import { getTime, getDate } from './DateTime'
 
-function Home({ user, users, api, entries, changeUser, addNewUser, addEntry }) {
+function Home({ user, users, api, entries, changeUser, addNewUser, addEntry, updateEntry }) {
     const [newUser, setNewUser] = useState('')
     const history = useHistory()
 
@@ -13,7 +14,7 @@ function Home({ user, users, api, entries, changeUser, addNewUser, addEntry }) {
     const renderRunningActivities = entries.filter(item => {
         return (item.user === user && item.length === 'running...')
     }).map(item => {
-        return <RunningActivity key={item.id} entry={item} api={api} />
+        return <RunningActivity key={item.id} entry={item} api={api} updateEntry={updateEntry} />
     })
 
     function handleChange(e) {
@@ -34,23 +35,12 @@ function Home({ user, users, api, entries, changeUser, addNewUser, addEntry }) {
     }
 
     function startActivity() {
-        const date = {
-            hour: new Date().getHours(),
-            minute: new Date().getMinutes(),
-            day: new Date().getDate(),
-            month: new Date().getMonth() + 1,
-            year: new Date().getFullYear()
-        }
-
-        const time = `${date.hour < 10 ? `0${date.hour}` : date.hour}:${date.minute < 10 ? `0${date.minute}` : date.minute}`
-        const day = `${date.year}-${date.month < 10 ? `0${date.month}` : date.month}-${date.day < 10 ? `0${date.day}` : date.day}`
-
         const newActivity = {
             user: user,
             name: '',
             type: '',
-            start: time,
-            dateStart: day,
+            start: getTime(),
+            dateStart: getDate(),
             length: 'running...'
         }
         fetch(api, {

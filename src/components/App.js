@@ -72,6 +72,7 @@ function App() {
                 users={users}
                 entries={entries}
                 api={API}
+                updateEntry={handleUpdateEntry}
                 addEntry={addEntry}
                 changeUser={changeUser}
                 addNewUser={addNewUser}

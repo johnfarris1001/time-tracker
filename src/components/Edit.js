@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams, useHistory, Redirect } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 function Edit({ entries, user, api, updateEntry }) {
     const params = useParams();
@@ -66,7 +66,7 @@ function Edit({ entries, user, api, updateEntry }) {
                 <input
                     type='number'
                     name='length'
-                    step='0.1'
+                    step='0.25'
                     onChange={e => {
                         setFormData({
                             ...formData,

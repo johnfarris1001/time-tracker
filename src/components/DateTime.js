@@ -49,8 +49,8 @@ export function getEndTime(entry) {
     const hrs = parseInt(entry.start.slice(0, 2))
     const min = parseInt(entry.start.slice(3, 5)) / 60
 
-    const days = Math.floor(entry.length / 24)
-    const hours = Math.floor(entry.length) + hrs - (days * 24)
+    const days = Math.floor((parseInt(entry.length) + hrs) / 24)
+    const hours = Math.floor(parseInt(entry.length)) + hrs - (days * 24)
     const minutes = entry.length - Math.floor(entry.length) + min
 
     if (minutes < 1) {

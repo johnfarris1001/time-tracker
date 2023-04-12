@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { getTime, getDate } from './DateTime'
 
 function NewEntry({ user, api, addEntry }) {
+    const history = useHistory()
     const [formData, setFormData] = useState({
         user: user,
         dateStart: getDate(),
@@ -23,6 +25,7 @@ function NewEntry({ user, api, addEntry }) {
             .then(r => r.json())
             .then(data => addEntry(data))
 
+        history.push('/entrylist')
     }
 
     return (

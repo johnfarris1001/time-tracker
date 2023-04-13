@@ -24,6 +24,7 @@ function RunningActivity({ entry, api, updateEntry }) {
         })
             .then(r => r.json())
             .then(data => updateEntry(data))
+        history.push('./entrylist')
     }
 
     return (

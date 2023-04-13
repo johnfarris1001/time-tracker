@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import RunningActivity from './RunningActivity'
-import { getTime, getDate } from './DateTime'
+import { getTime, getDate } from '../DateTime'
 
 function Home({ user, users, api, entries, changeUser, addNewUser, addEntry, updateEntry }) {
     const [newUser, setNewUser] = useState('')

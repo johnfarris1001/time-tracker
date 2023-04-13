@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { getLength } from './DateTime'
+import { getLength } from '../DateTime'
 
 function RunningActivity({ entry, api, updateEntry }) {
     const [formData, setFormData] = useState({

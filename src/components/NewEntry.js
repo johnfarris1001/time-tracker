@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { getTime, getDate, roundTime } from './DateTime'
+import { getTime, getDate, roundTime } from '../DateTime'
 
 function NewEntry({ user, api, addEntry }) {
     const history = useHistory()

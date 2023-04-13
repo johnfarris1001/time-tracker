@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { getEndTime } from './DateTime'
+import { getEndTime } from '../DateTime'
 
 function Entry({ entry, api, removeItem }) {
     const history = useHistory()

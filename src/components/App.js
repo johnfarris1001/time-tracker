@@ -67,6 +67,7 @@ function App() {
             <br />
             <NavBar />
             <br />
+            <h1>Time Tracker</h1>
             <br />
             <Home
                 user={user}

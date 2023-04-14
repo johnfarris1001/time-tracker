@@ -16,11 +16,11 @@ function NavBar() {
             <NavLink to='/' exact style={linkStyles}>
                 About
             </NavLink>
-            <NavLink to='/entrylist' exact style={linkStyles}>
-                Entry List
-            </NavLink>
             <NavLink to='/newentry' exact style={linkStyles}>
                 New Entry
+            </NavLink>
+            <NavLink to='/entrylist' exact style={linkStyles}>
+                Entry List
             </NavLink>
             <NavLink to='/results' exact style={linkStyles}>
                 Results

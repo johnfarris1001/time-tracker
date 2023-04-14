@@ -22,6 +22,9 @@ function NavBar() {
             <NavLink to='/newentry' exact style={linkStyles}>
                 New Entry
             </NavLink>
+            <NavLink to='/results' exact style={linkStyles}>
+                Results
+            </NavLink>
         </div>
     )
 }

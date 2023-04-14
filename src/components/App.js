@@ -7,6 +7,7 @@ import EntryList from './EntryList'
 import NewEntry from './NewEntry'
 import Home from './Home'
 import Edit from './Edit'
+import Results from './Results'
 
 import '../App.css';
 
@@ -97,6 +98,9 @@ function App() {
                         api={API}
                         updateEntry={handleUpdateEntry}
                     />
+                </Route>
+                <Route path='/results'>
+                    <Results entries={entries} user={user} />
                 </Route>
                 <Route exact path='/'>
                     <About />

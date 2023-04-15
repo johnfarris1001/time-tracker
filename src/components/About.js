@@ -4,7 +4,11 @@ function About() {
 
     return (
         <div id='about-div'>
-            <h3>Notes:</h3>
+            <h3>Instructions:</h3>
+            <ol>
+                <li></li>
+            </ol>
+            <h4>Notes:</h4>
             <ul>
                 <li>Start by adding a user</li>
                 <li>Add new entries on the New Entry page</li>

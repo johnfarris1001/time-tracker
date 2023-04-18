@@ -19,3 +19,4 @@ Allows you to track and analyze your time throughout the day.
 
 #### Links
 [Blog Post](https://medium.com/@johnfarris217/working-with-dates-and-times-in-javascript-5244c81a8e21)
+[Demonstration Video](https://youtu.be/fJvuxNcZ2iY)

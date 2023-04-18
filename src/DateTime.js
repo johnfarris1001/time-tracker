@@ -69,3 +69,34 @@ export function roundTime(time) {
         return `${hrs + 1 < 10 ? `0${hrs + 1}` : hrs + 1}:${min - 60 === 0 ? '00' : min - 60}`
     }
 }
+
+function getDifference() {
+    // const date = {
+    //     hour: new Date().getHours(),
+    //     minute: Math.round((new Date().getMinutes()) / 15) * 15,
+    //     day: new Date().getDate(),
+    //     month: new Date().getMonth() + 1,
+    //     year: new Date().getFullYear()
+    // }
+
+    const newDateTime = '2023–04–15 13:49'
+    const previousDateTime = '2023-04-13 09:19'
+
+    const date = {
+        hour: parseInt(newDateTime.slice(11, 13)),
+        minute: parseInt(newDateTime.slice(14, 16)),
+        day: parseInt(newDateTime.slice(8, 10)),
+        month: parseInt(newDateTime.slice(5, 7)),
+        year: parseInt(newDateTime.slice(0, 4))
+    }
+
+    const previousDate = {
+        hour: parseInt(previousDateTime.slice(11, 13)),
+        minute: parseInt(previousDateTime.slice(14, 16)),
+        day: parseInt(previousDateTime.slice(8, 10)),
+        month: parseInt(previousDateTime.slice(5, 7)),
+        year: parseInt(previousDateTime.slice(0, 4))
+    }
+
+    const difference = (8760 * (date.year - previousDate.year)) + (720 * (date.month - previousDate.month)) + (24 * (date.day - previousDate.day)) + (date.hour - previousDate.hour) + ((date.minute - previousDate.minute) / 60)
+}

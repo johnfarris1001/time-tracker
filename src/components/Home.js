@@ -77,7 +77,7 @@ function Home({ user, users, api, entries, changeUser, addNewUser, addEntry, upd
             </div>
             <br />
             <div>
-                {renderRunningActivities ? <table>
+                {renderRunningActivities ? <table className='center'>
                     <tbody>
                         {renderRunningActivities}
                     </tbody>
